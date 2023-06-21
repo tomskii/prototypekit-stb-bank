@@ -27,8 +27,10 @@
 
     <h1 class="govuk-heading-l govuk-!-margin-bottom-6">View uploaded data</h1>
     <h2 class="govuk-heading-m">
-      {{ data['report-month'] }}
+      {{ data['report-month'] }} report
     </h2> 
+
+    <!--<p>{{ data['todays-date'] }} at 9:56am</p>-->
     <!--data-module="moj-sortable-table"-->
     <table class="govuk-table">
       <caption class="govuk-table__caption govuk-table__caption--l"></caption>
@@ -82,12 +84,21 @@
       <tfoot>
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header govuk-!-text-align-right" colspan="5">Total fees paid</th>
-          <td class="govuk-table__cell govuk-!-font-weight-bold">GBP X,XXXX.XX<br>EUR X,XXXX.XX</td>
+          <td class="govuk-table__cell govuk-!-font-weight-bold">GBP 3,000.00<br>EUR 5,800.00</td>
         </tr>
       </tfoot>
     </table>
 
-
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Submit report"
+      }) }}
+    
+      {{ govukButton({
+        text: "Upload report again",
+        classes: "govuk-button--secondary"
+      }) }}
+    </div>
     
 
 

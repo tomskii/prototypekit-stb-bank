@@ -2,6 +2,10 @@ module.exports = {
 
   // Insert values here
   
+   // Names
+   'signed-in-name': 'Jane Smith',
+   'last-month-name': 'Jane Smith',
+   
   // Dates
   'report-due': 'yes',
   'end-previous-month': '30 April 2023',
