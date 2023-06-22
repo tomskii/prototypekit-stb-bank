@@ -28,14 +28,10 @@ module.exports = {
   'last-month-only': 'April',
   '3rd-month-only': 'March',
   '4th-month-only': 'February',
-  
-  // Names
-  'signed-in-name': 'John Smith',
-  'last-month-name': 'John Smith',
 
   // FACILITY 1 VALUES
   'facility-1-updated': 'no',
-  'facility-1-name': 'Compressors Ltd',
+  'facility-1-name': 'Britannia Energy Ltd',
   'facility-1-ukef-id': '0020001371',
   'facility-1-ref': 'XXXX/XXX/XXXXX',
   'facility-1-type': 'Cash facility',
@@ -62,7 +58,7 @@ module.exports = {
 
   // FACILITY 2 VALUES
   'facility-2-updated': 'no',
-  'facility-2-name': 'Petroleum Ltd',
+  'facility-2-name': 'British Tech Innovators Ltd',
   'facility-2-ukef-id': '0020001413',
   'facility-2-ref': 'XXXX/XXX/XXXXX',
   'facility-2-type': 'Contingent facility',
@@ -90,7 +86,7 @@ module.exports = {
 
   // FACILITY 4 VALUES
   'facility-4-updated': 'no',
-  'facility-4-name': 'Motors Ltd',
+  'facility-4-name': 'NexGen Robotics Ltd',
   'facility-4-ref': '	XXXX/XXX/XXXXX',
   'facility-4-ukef-id': '	0020001499',
   'facility-4-type': 'Cash facility',
@@ -116,7 +112,7 @@ module.exports = {
 
   // FACILITY 5 VALUES
   'facility-5-updated': 'no',
-  'facility-5-name': 'A1 Manifolds Ltd',
+  'facility-5-name': 'Union Manufacturing Ltd',
   'facility-5-ukef-id': '0020001507',
   'facility-5-ref': 'XXXX/XXX/XXXXX',
   'facility-5-end-date': '23 July 2025',

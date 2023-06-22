@@ -1,7 +1,7 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
 
 {% block pageTitle %}
-  View uploaded data – {{ serviceName }} – GOV.UK Prototype Kit
+  Check uploaded report – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
@@ -9,6 +9,7 @@
   <div class="moj-header__container">
     {% include "/includes/phase-banner.html" %}
   </div>
+  {% include "/version1/includes/primary-nav-upload-selected.html" %}
 {% endblock %}
 
 {% block pageScripts %}
@@ -25,7 +26,7 @@
 
   <div class="govuk-grid-column-full">
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">View uploaded data</h1>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check uploaded report</h1>
     <h2 class="govuk-heading-m">
       {{ data['report-month'] }} report
     </h2> 
@@ -37,8 +38,9 @@
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header" aria-sort="none">Bank transaction reference</th>
-          <th scope="col" class="govuk-table__header" aria-sort="ascending">UKEF facility reference</th>
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">UKEF facility ID</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Client name</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Facility currency</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Facility utilisation</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Fees accrued</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Fee paid</th>
@@ -49,7 +51,8 @@
           <td class="govuk-table__cell" data-sort-value="{{ data['facility-1-ref'] }}">{{ data['facility-1-ref'] }}</td>
           <td class="govuk-table__cell">{{ data['facility-1-ukef-id'] }}</td>
           <td class="govuk-table__cell">{{ data['facility-1-name'] }}</td>
-          <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-1-base-currency'] }} {{ data['facility-1-utilisation'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="">{{ data['facility-1-base-currency'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-1-utilisation'] }}</td>
           <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-1-fee-currency'] }} {{ data['facility-1-accrued'] }} </td>
           <td class="govuk-table__cell" data-sort-value="1000">{{ data['facility-1-fee-currency'] }} {{ data['facility-1-paid'] }} </td>
         </tr>
@@ -58,7 +61,8 @@
           <td class="govuk-table__cell" data-sort-value="{{ data['facility-2-ref'] }}">{{ data['facility-2-ref'] }}</td>
           <td class="govuk-table__cell">{{ data['facility-2-ukef-id'] }}</td>
           <td class="govuk-table__cell">{{ data['facility-2-name'] }}</td>
-          <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-2-base-currency'] }} {{ data['facility-2-utilisation'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="">{{ data['facility-2-base-currency'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-2-utilisation'] }}</td>
           <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-2-fee-currency'] }} {{ data['facility-2-accrued'] }} </td>
           <td class="govuk-table__cell" data-sort-value="1000">{{ data['facility-2-fee-currency'] }} {{ data['facility-2-paid'] }} </td>
         </tr>
@@ -67,7 +71,8 @@
           <td class="govuk-table__cell" data-sort-value="{{ data['facility-4-ref'] }}">{{ data['facility-4-ref'] }}</td>
           <td class="govuk-table__cell">{{ data['facility-4-ukef-id'] }}</td>
           <td class="govuk-table__cell">{{ data['facility-4-name'] }}</td>
-          <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-4-base-currency'] }} {{ data['facility-4-utilisation'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="">{{ data['facility-4-base-currency'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-4-utilisation'] }}</td>
           <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-4-fee-currency'] }} {{ data['facility-4-accrued'] }} </td>
           <td class="govuk-table__cell" data-sort-value="1000">{{ data['facility-4-fee-currency'] }} {{ data['facility-4-paid'] }} </td>
         </tr>
@@ -76,29 +81,58 @@
           <td class="govuk-table__cell" data-sort-value="{{ data['facility-5-ref'] }}">{{ data['facility-5-ref'] }}</td>
           <td class="govuk-table__cell">{{ data['facility-5-ukef-id'] }}</td>
           <td class="govuk-table__cell">{{ data['facility-5-name'] }}</td>
-          <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-5-base-currency'] }} {{ data['facility-5-utilisation'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="">{{ data['facility-5-base-currency'] }}</td>
+          <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-5-utilisation'] }}</td>
           <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-5-fee-currency'] }} {{ data['facility-5-accrued'] }} </td>
           <td class="govuk-table__cell" data-sort-value="1000">{{ data['facility-5-fee-currency'] }} {{ data['facility-5-paid'] }} </td>
         </tr>
       </tbody>
       <tfoot>
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header govuk-!-text-align-right" colspan="5">Total fees paid</th>
+          <th scope="row" class="govuk-table__header govuk-!-text-align-right" colspan="6">Total fees paid</th>
           <td class="govuk-table__cell govuk-!-font-weight-bold">GBP 3,000.00<br>EUR 5,800.00</td>
         </tr>
       </tfoot>
     </table>
 
-    <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Submit report"
-      }) }}
+    <div class="govuk-form-group">
+
+      <fieldset class="govuk-fieldset">
+    
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+    
+          Is the data correct?
+    
+        </legend>
+    
+        <div class="govuk-radios" data-module="govuk-radios">
+    
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="correct" name="correct" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="correct">
+              Yes, I want to submit this report
+            </label>
+    
+          </div>
+    
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="correct-2" name="correct" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="correct-2">
+              No, I want to upload the CSV again
+            </label>
+    
+          </div>
+    
+        </div>
+    
+      </fieldset>
+    
+    </div>
     
       {{ govukButton({
-        text: "Upload report again",
-        classes: "govuk-button--secondary"
+        text: "Continue"
       }) }}
-    </div>
+
     
 
 
