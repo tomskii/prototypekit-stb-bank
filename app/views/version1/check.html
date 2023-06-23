@@ -9,7 +9,7 @@
   <div class="moj-header__container">
     {% include "/includes/phase-banner.html" %}
   </div>
-  {% include "/version1/includes/primary-nav-upload-selected.html" %}
+  {% include "/version1/includes/primary-nav-nothing-selected.html" %}
 {% endblock %}
 
 {% block pageScripts %}
@@ -37,7 +37,7 @@
       <caption class="govuk-table__caption govuk-table__caption--l"></caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header" aria-sort="none">Bank transaction reference</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Payment reference</th>
           <th scope="col" class="govuk-table__header" aria-sort="ascending">UKEF facility ID</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Client name</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Facility currency</th>
@@ -95,8 +95,15 @@
       </tfoot>
     </table>
 
-    <div class="govuk-form-group">
+    
 
+
+      <form class="form" action="/version1/confirmation" method="post">
+        <input type="hidden" name="report-uploaded" value="true">
+      
+
+
+        <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
     
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -108,30 +115,35 @@
         <div class="govuk-radios" data-module="govuk-radios">
     
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="correct" name="correct" type="radio" value="yes">
-            <label class="govuk-label govuk-radios__label" for="correct">
+            <input class="govuk-radios__input" id="yes" name="check" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="yes">
               Yes, I want to submit this report
             </label>
     
           </div>
     
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="correct-2" name="correct" type="radio" value="no">
-            <label class="govuk-label govuk-radios__label" for="correct-2">
+            <input class="govuk-radios__input" id="no" name="check" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="no">
               No, I want to upload the CSV again
             </label>
     
           </div>
     
         </div>
-    
+       
+
       </fieldset>
-    
     </div>
+      
+    {{ govukButton({
+      text: "Continue"
+    }) }}
     
-      {{ govukButton({
-        text: "Continue"
-      }) }}
+    </form>
+    
+    
+      
 
     
 

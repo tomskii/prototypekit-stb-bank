@@ -18,3 +18,21 @@ router.use((req, res, next) => {
     console.log(JSON.stringify(log, null, 2))
   next()
 })
+
+
+// Run this code when a form is submitted to '/version1/confirmation' on check.html
+router.post('/version1/confirmation', function (req, res) {
+
+  // Make a variable and give it the value from 'check' radios
+  var check = req.session.data['check']
+
+  // Check whether the variable matches a condition.
+  if (check == "yes"){
+    // Send user to confirmation screen
+    res.redirect('/version1/confirmation')
+  } else {
+    // Send user to upload screen
+    res.redirect('/version1/upload-report')
+  }
+
+})

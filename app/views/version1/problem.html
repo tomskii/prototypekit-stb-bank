@@ -1,0 +1,78 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+
+{% block pageTitle %}
+  There is a problem – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "/version1/includes/head.html" %}
+  <div class="moj-header__container">
+    {% include "/includes/phase-banner.html" %}
+  </div>
+  {% include "/version1/includes/primary-nav-nothing-selected.html" %}
+{% endblock %}
+
+{% block pageScripts %}
+  {% include "includes/scripts.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+  
+        <h1 class="govuk-heading-l">There is a problem</h1>
+        <p class="govuk-body-l">Your report contains formatting errors.</p>
+        <p class="govuk-body">Before you can send UKEF the report you should:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>correct all the errors in your report</li>
+            <li><a class="govuk-link" href="upload-report">upload and check the report again</a></li>
+        </ul>
+        
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">  
+        
+        <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Errors found in May2023-report.csv</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Column</th>
+                <th scope="col" class="govuk-table__header">Row</th>
+                <th scope="col" class="govuk-table__header">Error</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">A</td>
+                <td class="govuk-table__cell">9</td>
+                <td class="govuk-table__cell">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">B</td>
+                <td class="govuk-table__cell">6</td>
+                <td class="govuk-table__cell">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">D</td>
+                <td class="govuk-table__cell">7</td>
+                <td class="govuk-table__cell">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        <p class="govuk-body"></p>
+        <p class="govuk-body"></p>
+        <p class="govuk-body"></p>
+            
+
+  
+    </div>      
+  
+  </div>
+
+{% endblock %}

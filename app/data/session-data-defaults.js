@@ -2,9 +2,12 @@ module.exports = {
 
   // Insert values here
   
+  'serviceNameBank': 'Santander – Facility reporting',
+  'report-uploaded': 'false',
+
    // Names
    'signed-in-name': 'Jane Smith',
-   'last-month-name': 'Jane Smith',
+   'last-month-name': 'John Jones',
    
   // Dates
   'report-due': 'yes',
@@ -12,6 +15,9 @@ module.exports = {
   'end-current-month': '31 May 2023',
   'last-month': 'April 2023',
   'report-month': 'May 2023',
+  'next-month-report': 'June 2023',
+  'start-last-month': '1 May 2023',
+  'start-next-month': '1 July 2023',
   '1-month-ago': '3 May 2023',
   'todays-date': '7 June 2023',
   'todays-date-full': '7 June 2023',
@@ -36,7 +42,7 @@ module.exports = {
   'facility-1-ref': 'XXXX/XXX/XXXXX',
   'facility-1-type': 'Cash facility',
   'facility-1-type-short': 'Cash',
-  'facility-1-end-date': '16 June 2024',
+
   'facility-1-prob-default': '1.0%',
   'facility-1-limit': '600,000.00',
   'facility-1-cover': '80%',
@@ -55,6 +61,13 @@ module.exports = {
 
   'facility-1-base-currency': 'GBP',
   'facility-1-fee-currency': 'GBP',
+  'facility-1-start-date': '16 January 2023',
+  'facility-1-end-date': '16 January 2026',
+  'facility-1-tenor': '36 months',
+  'facility-1-interest-margin': '2%',
+  'facility-1-fee-payable': '1.8000%',
+  'facility-1-credit-rating': 'Good (BB-)',
+
 
   // FACILITY 2 VALUES
   'facility-2-updated': 'no',
@@ -63,7 +76,6 @@ module.exports = {
   'facility-2-ref': 'XXXX/XXX/XXXXX',
   'facility-2-type': 'Contingent facility',
   'facility-2-type-short': 'Contingent',
-  'facility-2-end-date': '18 September 2026',
   'facility-2-prob-default': '1.2%',
   'facility-2-limit': '300,000.00',
   'facility-2-cover': '80%',
@@ -82,7 +94,12 @@ module.exports = {
 
   'facility-2-base-currency': 'EUR',
   'facility-2-fee-currency': 'EUR',
-
+  'facility-2-start-date': '23 July 2022',
+  'facility-2-end-date': '23 July 2027',
+  'facility-2-tenor': '60 months',
+  'facility-2-interest-margin': '2%',
+  'facility-2-fee-payable': '1.7500%',
+  'facility-2-credit-rating': 'Good (BB+)',
 
   // FACILITY 4 VALUES
   'facility-4-updated': 'no',
@@ -91,7 +108,6 @@ module.exports = {
   'facility-4-ukef-id': '	0020001499',
   'facility-4-type': 'Cash facility',
   'facility-4-type-short': 'Cash',
-  'facility-4-end-date': '23 Mar 2025',
   'facility-4-prob-default': '0.7%',
   'facility-4-limit': '1,500,000.00',
   'facility-4-cover': '80%',
@@ -107,15 +123,21 @@ module.exports = {
   'facility-4utiisation-updated': 'no',
   'facility-4paid-updated': 'no',
   'facility-4accrued-updated': 'no',
+  
   'facility-4-base-currency': 'YEN',
   'facility-4-fee-currency': 'GBP',
+  'facility-4-start-date': '15 March 2021',
+  'facility-4-end-date': '15 July 2026',
+  'facility-4-tenor': '60 months',
+  'facility-4-interest-margin': '1.5%',
+  'facility-4-fee-payable': '1.8000%',
+  'facility-4-credit-rating': 'Good (BB)',
 
   // FACILITY 5 VALUES
   'facility-5-updated': 'no',
   'facility-5-name': 'Union Manufacturing Ltd',
   'facility-5-ukef-id': '0020001507',
   'facility-5-ref': 'XXXX/XXX/XXXXX',
-  'facility-5-end-date': '23 July 2025',
   'facility-5-type': 'Cash facility',
   'facility-5-type-short': 'Cash',
   'facility-5-prob-default': '0.3%',
@@ -132,5 +154,10 @@ module.exports = {
   'facility-5new-accrued': '',
   'facility-5-base-currency': 'USD',
   'facility-5-fee-currency': 'EUR',
-
+  'facility-5-start-date': '6 November 2022',
+  'facility-5-end-date': '6 November 2025',
+  'facility-5-tenor': '36 months',
+  'facility-5-interest-margin': '1.75%',
+  'facility-5-fee-payable': '1.8000%',
+  'facility-5-credit-rating': 'Good (BB-)'
 }

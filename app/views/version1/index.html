@@ -1,7 +1,7 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
 
 {% block pageTitle %}
-  View uploaded data – {{ serviceName }} – GOV.UK Prototype Kit
+  Home – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
@@ -24,51 +24,30 @@
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">Facility reporting</h1>
+    <h1 class="govuk-heading-l">Facility reporting</h1>
 
-    <!-- display the due banner -->
-    <!--<div class="govuk-inset-text">
-        {{ data['report-month'] }} report is due – all facilities must be updated and submitted to UKEF by {{ data['this-month-report-due'] }}.
-    </div>-->
-    
-    <!--<article class="moj-ticket-panel" aria-label="Sub navigation 1">
-        <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-          <h2 class="govuk-heading-m govuk-!-margin-bottom-2">{{ data['report-month'] }} report is due</h2>
-          <p class="govuk-body">Facilities must be updated and submitted to UKEF by {{ data['this-month-report-due'] }} using the UKEF CSV template</p>
-          <button class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">
-            Download {{ data['report-month'] }} template
-          </button>
-        </section>
-      </article>-->
-
+    {% if 'false' in data['report-uploaded'] %}  
+    <!-- 1st visit to page show report due / download information -->
       <h2 class="govuk-heading-m">{{ data['report-month'] }} report is due</h2>
-          <p class="govuk-body">Facilities must be updated and submitted to UKEF by {{ data['this-month-report-due'] }} using the UKEF CSV template.</p>
+          <p class="govuk-body">Facilities must be updated and submitted to UKEF by {{ data['this-month-report-due'] }} using the UKEF {{ data['report-month'] }} template.</p>
           <button class="govuk-button" data-module="govuk-button">
             Download {{ data['report-month'] }} template
           </button>
 
-          <p class="govuk-body">Go to <a class="govuk-link" href="upload-report">submit report</a>.</p>
+          <p class="govuk-body">Go to <a class="govuk-link" href="upload-report">upload report</a>.</p>
 
-          <!--
-          <div class="govuk-form-group">
-            <label class="govuk-label govuk-label--l" for="file-upload-1">
-                Upload report
-            </label>
-            
-            <div id="file-upload-1-hint" class="govuk-hint">
-                You must use the UKEF template
-            </div>
-            
-            <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1-hint">
-            </div>
-            
-            <button class="govuk-button" data-module="govuk-button">
-            Continue
-            </button>-->
-            
-        
+    {% elif 'success' in data['report-uploaded'] %}
+    <!-- Report has been submitted - show different info -->      
+    <h2 class="govuk-heading-m">No report due</h2>
+
+    <p class="govuk-body">The {{ data['report-month'] }} report was submitted by {{ data['last-month-name'] }} on {{ data['1-month-ago'] }} at 10:56am.</p>
+
+    <p class="govuk-body">The {{ data['next-month-report'] }} report template will be available to download on {{ data['start-next-month'] }}.</p>
+
+    {% endif %}
+  </div>      
 
 </div>
 

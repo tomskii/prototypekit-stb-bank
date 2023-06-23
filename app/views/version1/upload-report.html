@@ -24,29 +24,52 @@
 
 <div class="govuk-grid-row">
 
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-two-thirds">
 
     <div class="govuk-form-group">
-        <h1  class="govuk-heading-l govuk-!-margin-bottom-6">
-        Submit report
-    </h1>
-            <label class="govuk-label govuk-label--m" for="file-upload-1">
-                Upload {{ data['report-month'] }} CSV file
-            </label>
-        
 
-        <div id="file-upload-1-hint" class="govuk-hint">
-            You must use the UKEF template
-        </div>
-        
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="event-name">
+         Upload report
+        </label>
+      </h1>
+
+      {% if 'false' in data['report-uploaded'] %}  
+      <!-- 1st visit to page show report due / download information -->
+      <div class="govuk-form-group">
+        <p class="govuk-body">You must use the UKEF <a class="govuk-link" href="index">{{ data['report-month'] }} template</a>.</p>
+          
         <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1-hint">
+      </div>
+      <div class="govuk-form-group">
+      <form class="form" action="problem" method="get">
+        {{ govukButton({
+            text: "Continue"
+          }) }}
+          <input type="hidden" name="report-uploaded" value="true">
+      </form>
     </div>
-    
-    {{ govukButton({
-        text: "Continue",
-        href: "review1"
-      }) }}
+    {% elif 'true' in data['report-uploaded'] %}
+    <!-- 2nd visit to page send user to confirmation page -->
+    <div class="govuk-form-group">
+      <p class="govuk-body">You must use the UKEF <a class="govuk-link" href="index">{{ data['report-month'] }} template</a>.</p>
+        
+      <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1-hint">
+    </div>
+    <div class="govuk-form-group">
+    <form class="form" action="confirmation" method="get">
+      {{ govukButton({
+          text: "Continue"
+        }) }}
+        <input type="hidden" name="report-uploaded" value="success">
+    </form>
+  </div>
 
+    {% elif 'success' in data['report-uploaded'] %}
+    <!-- Report has been submitted - show different info -->
+    <p class="govuk-body">{{ data['report-month'] }} report has already been submitted.</p>
+    <p class="govuk-body">You can contact the UKEF team by email: <a href="#" class="govuk-link--no-visited-state">TradeFinance@ukexportfinance.gov.uk</a></p> 
+    {% endif %}
 
 </div>
 
