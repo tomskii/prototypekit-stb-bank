@@ -28,7 +28,7 @@
 
     <h1 class="govuk-heading-l">Facility reporting</h1>
 
-    {% if 'false' in data['report-uploaded'] %}  
+    {% if ('false' in data['report-uploaded']) or ('true' in data['report-uploaded']) %} 
     <!-- 1st visit to page show report due / download information -->
       <h2 class="govuk-heading-m">{{ data['report-month'] }} report is due</h2>
           <p class="govuk-body">Facilities must be updated and submitted to UKEF by {{ data['this-month-report-due'] }} using the UKEF {{ data['report-month'] }} template.</p>
@@ -45,6 +45,8 @@
     <p class="govuk-body">The {{ data['report-month'] }} report was submitted by {{ data['last-month-name'] }} on {{ data['1-month-ago'] }} at 10:56am.</p>
 
     <p class="govuk-body">The {{ data['next-month-report'] }} report template will be available to download on {{ data['start-next-month'] }}.</p>
+
+    <p class="govuk-body">Contact the UKEF team: <a href="#" class="govuk-link--no-visited-state">TradeFinance@ukexportfinance.gov.uk</a></p> 
 
     {% endif %}
   </div>      
