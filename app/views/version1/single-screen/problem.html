@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/version1/includes/head.html" %}
+{% include "/version1/single-screen/includes/head.html" %}
   <div class="moj-header__container">
     {% include "/includes/phase-banner.html" %}
   </div>
-  {% include "/version1/includes/primary-nav-upload-selected.html" %}
+  {% include "/version1/single-screen/includes/primary-nav-nothing-selected.html" %}
 {% endblock %}
 
 {% block pageScripts %}
@@ -77,11 +77,11 @@
 
           <div class="govuk-form-group">
 
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Upload the report again</h2>              
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Upload the report again</h2>
             <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1-hint">
           </div>
           <div class="govuk-form-group">
-          <form class="form" action="check-filename-only" method="get">
+          <form class="form" action="check" method="get">
             {{ govukButton({
                 text: "Continue"
               }) }}

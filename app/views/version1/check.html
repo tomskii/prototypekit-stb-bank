@@ -9,7 +9,7 @@
   <div class="moj-header__container">
     {% include "/includes/phase-banner.html" %}
   </div>
-  {% include "/version1/includes/primary-nav-nothing-selected.html" %}
+  {% include "/version1/includes/primary-nav-upload-selected.html" %}
 {% endblock %}
 
 {% block pageScripts %}
@@ -26,14 +26,14 @@
 
   <div class="govuk-grid-column-full">
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check uploaded report</h1>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">Check report</h1>
     <h2 class="govuk-heading-m">
       {{ data['report-month'] }} report
     </h2> 
 
     <!--<p>{{ data['todays-date'] }} at 9:56am</p>-->
     <!--data-module="moj-sortable-table"-->
-    <table class="govuk-table ">
+    <table class="govuk-table govuk-body-s">
       <caption class="govuk-table__caption govuk-table__caption--l"></caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
@@ -53,7 +53,7 @@
           <td class="govuk-table__cell">{{ data['facility-1-name'] }}</td>
           <td class="govuk-table__cell" data-sort-value="">{{ data['facility-1-base-currency'] }}</td>
           <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-1-utilisation'] }}</td>
-          <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-1-fee-currency'] }} {{ data['facility-1-accrued'] }} </td>
+          <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-1-accrued'] }} </td>
           <td class="govuk-table__cell" data-sort-value="1000">{{ data['facility-1-fee-currency'] }} {{ data['facility-1-paid'] }} </td>
         </tr>
 
@@ -63,7 +63,7 @@
           <td class="govuk-table__cell">{{ data['facility-2-name'] }}</td>
           <td class="govuk-table__cell" data-sort-value="">{{ data['facility-2-base-currency'] }}</td>
           <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-2-utilisation'] }}</td>
-          <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-2-fee-currency'] }} {{ data['facility-2-accrued'] }} </td>
+          <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-2-accrued'] }} </td>
           <td class="govuk-table__cell" data-sort-value="1000">{{ data['facility-2-fee-currency'] }} {{ data['facility-2-paid'] }} </td>
         </tr>
 
@@ -73,7 +73,7 @@
           <td class="govuk-table__cell">{{ data['facility-4-name'] }}</td>
           <td class="govuk-table__cell" data-sort-value="">{{ data['facility-4-base-currency'] }}</td>
           <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-4-utilisation'] }}</td>
-          <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-4-fee-currency'] }} {{ data['facility-4-accrued'] }} </td>
+          <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-4-accrued'] }} </td>
           <td class="govuk-table__cell" data-sort-value="1000">{{ data['facility-4-fee-currency'] }} {{ data['facility-4-paid'] }} </td>
         </tr>
 
@@ -83,7 +83,7 @@
           <td class="govuk-table__cell">{{ data['facility-5-name'] }}</td>
           <td class="govuk-table__cell" data-sort-value="">{{ data['facility-5-base-currency'] }}</td>
           <td class="govuk-table__cell" data-sort-value="400000">{{ data['facility-5-utilisation'] }}</td>
-          <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-5-fee-currency'] }} {{ data['facility-5-accrued'] }} </td>
+          <td class="govuk-table__cell" data-sort-value="10000">{{ data['facility-5-accrued'] }} </td>
           <td class="govuk-table__cell" data-sort-value="1000">{{ data['facility-5-fee-currency'] }} {{ data['facility-5-paid'] }} </td>
         </tr>
       </tbody>
@@ -94,21 +94,17 @@
         </tr>
       </tfoot>
     </table>
-
+    <p class="govuk-body">UKEF-facility-report-May-2023.csv</p>
     
-
-
       <form class="form" action="/version1/confirmation" method="post">
         <input type="hidden" name="report-uploaded" value="true">
-      
-
 
         <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
     
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
     
-          Is the data correct?
+          Is this the correct report?
     
         </legend>
     
@@ -141,14 +137,6 @@
     }) }}
     
     </form>
-    
-    
-      
-
-    
-
-
-
 
 </div>
 

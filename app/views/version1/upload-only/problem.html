@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/version1/includes/head.html" %}
+{% include "/version1/upload-only/includes/head.html" %}
   <div class="moj-header__container">
     {% include "/includes/phase-banner.html" %}
   </div>
-  {% include "/version1/includes/primary-nav-upload-selected.html" %}
+  {% include "/version1/upload-only/includes/primary-nav-nothing-selected.html" %}
 {% endblock %}
 
 {% block pageScripts %}
@@ -34,15 +34,20 @@
               <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                   <li>
-                    <a href="#">Your report contains formatting errors. You must correct the errors before you can upload the report again.</a>
+                    <a href="#">You must correct the formatting errors before you can upload the report</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         
+          <div class="govuk-form-group govuk-form-group--error">
+            <h2 class="govuk-heading-m">Errors found in UKEF-facility-report-May-2023.csv</h2>
+            <p id="passport-issued-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> You must correct the formatting errors before you can upload the report
+                </p>
         <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-table__caption--m">Errors found in May2023-report.csv</caption>
+            <caption class="govuk-table__caption govuk-table__caption--m"></caption>
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Column</th>
@@ -68,17 +73,15 @@
               </tr>
             </tbody>
           </table>
-
+          </div>
 
           <div class="govuk-form-group">
 
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Upload the corrected report</h2>
-            <p class="govuk-body">You must use the UKEF <a class="govuk-link" href="index">{{ data['report-month'] }} template</a>.</p>
-              
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Upload the report again</h2>
             <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1-hint">
           </div>
           <div class="govuk-form-group">
-          <form class="form" action="confirmation" method="get">
+          <form class="form" action="check-filename-only" method="get">
             {{ govukButton({
                 text: "Continue"
               }) }}
@@ -91,3 +94,5 @@
   </div>
 
 {% endblock %}
+
+

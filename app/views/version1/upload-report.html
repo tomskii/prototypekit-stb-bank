@@ -49,6 +49,7 @@
           <input type="hidden" name="report-uploaded" value="true">
       </form>
     </div>
+    
     {% elif 'true' in data['report-uploaded'] %}
     <!-- 2nd visit to page send user to confirmation page -->
     <div class="govuk-form-group">
@@ -57,7 +58,7 @@
       <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" aria-describedby="file-upload-1-hint">
     </div>
     <div class="govuk-form-group">
-    <form class="form" action="confirmation" method="get">
+    <form class="form" action="check-filename-only" method="get">
       {{ govukButton({
           text: "Continue"
         }) }}
@@ -68,7 +69,7 @@
     {% elif 'success' in data['report-uploaded'] %}
     <!-- Report has been submitted - show different info -->
     <p class="govuk-body">{{ data['report-month'] }} report has already been submitted.</p>
-    <p class="govuk-body">Contact the UKEF team: <a href="#" class="govuk-link--no-visited-state">TradeFinance@ukexportfinance.gov.uk</a></p> 
+    <p class="govuk-body">Contact the UKEF team: <a href="#" class="govuk-link--no-visited-state">{{ data['stb-email'] }}</a>.</p> 
     {% endif %}
 
 </div>
